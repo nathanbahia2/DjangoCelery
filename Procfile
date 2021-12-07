@@ -1,3 +1,3 @@
-celery: celery --app django_celery worker --loglevel info --beat & celery -app django_celery beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+filas_celery: celery -A django_celery worker --beat --scheduler django --loglevel=info
 web: gunicorn django_celery.wsgi --log-file -
 release: python manage.py migrate
