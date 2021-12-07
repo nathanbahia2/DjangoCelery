@@ -150,6 +150,14 @@ LOGOUT_REDIRECT_URL = '/auth/login'
 REDIS_URL = config('REDIS_URL')
 CELERY_BROKER_URL = config('CELERY_BROKER_URL')
 CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND')
+CACHE_BACKEND = 'default'
+TIMEZONE = 'America/Sao_Paulo'
+RESULT_BACKEND = config('CELERY_RESULT_BACKEND')
+ACCEPT_CONTENT = ['application/json']
+TASK_SERIALIZER = 'json'
+RESULT_SERIALIZER = 'json'
+TASK_IGNORE_RESULT = False
+BROKER_USE_SSL = True
 CELERY_TASK_ROUTES = ([
-    ('apps.inspirations.tasks.task_hello_world', {'queue': 'queue_hello_world'})
+    ('apps.inspirations.tasks.task_hello_world', {'queue': 'queue_geral'})
 ])
