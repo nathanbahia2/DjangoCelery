@@ -1,6 +1,6 @@
-from celery import shared_task
+from django_celery.celery import app
 
 
-@shared_task
-def add(x, y):
-    return x + y
+@app.task
+def hello_world():
+    print('Hello World! It Worked!!! ')
