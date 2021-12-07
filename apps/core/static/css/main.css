@@ -3,6 +3,7 @@
 :root {
     --black: #484848;
     --red: #D20;
+    --pink: #D20d2010;
     --primary: #66ff2e;
     --secondary: #79AEC8;
     --p: 8px;
@@ -22,6 +23,10 @@
     box-sizing: inherit;
 }
 
+body {
+    background-color: #EEE;
+}
+
 h1, h2 {
     font-family: var(--f-cursive)
 }
@@ -39,7 +44,7 @@ select, select:hover, select:focus, select:active {
     border-radius: 8px;
     box-shadow: none;
     outline: none;
-    background-color: #EEE;
+    background-color: #fefefe;
     border: solid 1px #EEE;
 }
 
@@ -48,6 +53,11 @@ input:focus, select:focus {
     box-shadow: none;
     background-color: #FFF;
     border: solid 1px var(--primary);
+}
+
+input.invalid:not(:focus) {
+    border: solid 1px var(--red);
+    background-color: var(--pink) !important;
 }
 
 button, span, a, input {
@@ -89,9 +99,10 @@ section .pannel {
 
 
 .login-content {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .login-form-container {
@@ -99,11 +110,10 @@ section .pannel {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-}
-
-
-.login-form-container .form {
-    max-width: 320px;
+    min-width: 340px;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fff;
 }
 
 .form {
@@ -112,6 +122,11 @@ section .pannel {
 
 .form-group {
     margin-bottom: calc(3 * var(--m));
+}
+
+.form-error {
+    font-size: 11px;
+    color: var(--red);
 }
 
 .text-center {
@@ -128,6 +143,12 @@ section .pannel {
 
 .text-red {
     color: var(--red);
+}
+
+.two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px
 }
 
 @media screen and (max-width: 680px) {

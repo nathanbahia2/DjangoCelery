@@ -37,3 +37,26 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return redirect('users:login')
+
+
+def register(request):
+    cadastro_form = auth_forms.RegisterForm(request.POST or None)
+
+    if cadastro_form.is_valid():
+        username = cadastro_form.cleaned_data.get('email')
+        password = cadastro_form.cleaned_data.get('password1')
+
+        user = cadastro_form.save(commit=False)
+        user.username = username
+        user.set_password(password)
+        user.save()
+
+        user = authenticate(username=username, password=password)
+        if user:
+            auth_login(request, user)
+            return redirect('core:index')
+
+    context = {
+        'cadastro_form': cadastro_form
+    }
+    return render(request, 'core/cadastro.html', context)
