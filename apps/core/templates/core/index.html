@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    <header>
+        <nav>
+            <a href="{% url 'core:index' %}" class="logo">Inspirações Diárias</a>
+            <div class="user">
+                <span>{{ request.user.email }}</span>
+                <a href="{% url 'users:logout' %}">Sair</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h3>Configurações</h3>
+            <div class="pannel bg-secondary">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.interval.id_for_label }}">{{ form.interval.label }}</label>
+                        {{ form.interval }}
+                    </div>
+                    <div class="text-center">
+                        <button>Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}
