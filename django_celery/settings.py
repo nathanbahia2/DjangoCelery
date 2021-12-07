@@ -158,6 +158,3 @@ TASK_SERIALIZER = 'json'
 RESULT_SERIALIZER = 'json'
 TASK_IGNORE_RESULT = False
 BROKER_USE_SSL = True
-CELERY_TASK_ROUTES = ([
-    ('apps.inspirations.tasks.task_hello_world', {'queue': 'queue_geral'})
-])
