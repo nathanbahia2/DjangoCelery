@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@100;300;400;500&display=swap');
+
+:root {
+    --black: #484848;
+    --red: #D20;
+    --primary: #66ff2e;
+    --secondary: #79AEC8;
+    --p: 8px;
+    --m: 8px;
+    --f-display: 'Poppins', sans-serif;
+    --f-cursive: 'Pacifico', cursive;
+}
+
+* {
+    font-family: var(--f-display);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*:after, *:before {
+    box-sizing: inherit;
+}
+
+h1, h2 {
+    font-family: var(--f-cursive)
+}
+
+label {
+    font-size: 12px;
+}
+
+input, input:hover, input:focus, input:active,
+select, select:hover, select:focus, select:active {
+    width: 100%;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    border-radius: 8px;
+    box-shadow: none;
+    outline: none;
+    background-color: #EEE;
+    border: solid 1px #EEE;
+}
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: #FFF;
+    border: solid 1px var(--primary);
+}
+
+button, span, a, input {
+    font-size: 14px;
+}
+
+button {
+    border: none;
+    border-radius: 16px;
+    padding: 12px;
+    cursor: pointer;
+    max-width: 75%;
+    min-width: 200px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary);
+    height: 75px;
+    padding: 0 16px
+}
+
+header nav a.logo {
+    font-family: var(--f-cursive);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+section {
+    padding: 16px;
+}
+
+section .pannel {
+    padding: 16px;
+    border-radius: 8px;
+}
+
+
+.login-content {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height: 100%;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.login-form-container .form {
+    max-width: 320px;
+}
+
+.form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: calc(3 * var(--m));
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+
+.bg-secondary {
+    background-color: var(--secondary);
+}
+
+.text-red {
+    color: var(--red);
+}
+
+@media screen and (max-width: 680px) {
+    .login-content {
+        display: block;
+    }
+    .login-content .login-content-logo,
+    .login-content .login-content-logo svg {
+        text-align: center;
+        height: 200px
+    }
+}
