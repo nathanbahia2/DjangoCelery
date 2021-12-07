@@ -150,4 +150,6 @@ LOGOUT_REDIRECT_URL = '/auth/login'
 REDIS_URL = config('REDIS_URL')
 CELERY_BROKER_URL = config('CELERY_BROKER_URL')
 CELERY_RESULT_BACKEND = config('CELERY_RESULT_BACKEND')
-CELERY_IMPORTS = ['apps.inspirations.tasks']
+CELERY_TASK_ROUTES = ([
+    ('apps.inspirations.tasks.task_hello_world', {'queue': 'queue_hello_world'})
+])
