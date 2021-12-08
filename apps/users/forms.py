@@ -89,19 +89,19 @@ class RegisterForm(forms.ModelForm):
         )
     )
 
-    # def clean_password1(self):
-    #     password1 = self.cleaned_data.get('password1')
-    #     password2 = self.cleaned_data.get('password2')
-    #
-    #     if password1 != password2:
-    #         raise ValidationError('As senhas precisam ser iguais')
-    #
-    # def clean_password2(self):
-    #     password1 = self.cleaned_data.get('password1')
-    #     password2 = self.cleaned_data.get('password2')
-    #
-    #     if password1 != password2:
-    #         raise ValidationError('As senhas precisam ser iguais')
+    def clean_password1(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+
+        if password1 != password2:
+            raise ValidationError('As senhas precisam ser iguais')
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+
+        if password1 != password2:
+            raise ValidationError('As senhas precisam ser iguais')
 
     class Meta:
         model = User
